@@ -107,10 +107,9 @@ def sliceBoundary(totCoordList, numGridLines):
     segCoordList = np.recarray(numGridLines, coordinate)
     rsArcLen = getArcLength(totCoordList)    # Get total edge length
     # The length of each subdivided segment.
-    rsSegmentLen = rsArcLen/numDivs
+    distNeeded = rsArcLen/numDivs
 
     # Traverse along the edge, marking where a segment ends
-    distNeeded = rsSegmentLen  # Distance remaining till next marker
     distRemain = distNeeded   # Distance remaining until segment ends
     segCoordList[0] = totCoordList[0]  # Don't forget the first point.
     cntrLeg = 0               # Start at the first leg
